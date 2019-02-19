@@ -1,0 +1,26 @@
+  <form class="text-center border border-light p-5" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <p class="h4 mb-4">Sign in</p>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" formControlName="email" placeholder="E-mail"> 
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" formControlName="password" placeholder="Password">
+      </div>
+      <div class="d-flex justify-content-around">
+          <div>
+            <!-- Remember me -->
+            <mdb-checkbox [checked]="true" [default]="true">Remember me</mdb-checkbox>
+          </div>
+      </div>
+      
+        <!-- Sign in button -->
+      <button class="btn btn-info" type="submit">Sign in</button>
+      
+        <!-- Register -->
+        <p>Not a member? 
+          <a href=""> Register</a>
+        </p>
+  </form>
+
