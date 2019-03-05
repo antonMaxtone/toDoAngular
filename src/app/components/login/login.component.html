@@ -1,22 +1,24 @@
   <form class="text-center border border-light p-5" [formGroup]="form" (ngSubmit)="onSubmit()">
       <p class="h4 mb-4">Sign in</p>
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" formControlName="email" placeholder="E-mail"> 
+      <div class="form-group md-form">
+        <label for = "formEmail">Email</label>
+        <input mdbInput mdbValidate type="email" id="formEmail" class="form-control mb-4" formControlName="email"> 
+        <mdb-error *ngIf="form.get('email').invalid && form.get('email').touched">Enter the correct email!</mdb-error>
       </div>
-      <div class="form-group">
-        <label>Password</label>
-        <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" formControlName="password" placeholder="Password">
+      <div class="form-group md-form">
+        <label for = "formPassword">Password</label>
+        <input mdbInput mdbValidate type="password" id="formPassword" class="form-control mb-4" formControlName="password">
+        <mdb-error *ngIf="form.get('password').invalid && form.get('password').touched">The password should not be empty!</mdb-error>
       </div>
       <div class="d-flex justify-content-around">
           <div>
             <!-- Remember me -->
-            <mdb-checkbox [checked]="true" [default]="true">Remember me</mdb-checkbox>
+            <mdb-checkbox [checked]="false" [default]="true">Remember me</mdb-checkbox>
           </div>
       </div>
       
         <!-- Sign in button -->
-      <button class="btn btn-info" type="submit">Sign in</button>
+      <button mdbBtn type="submit" gradient="aqua" rounded="true" mdbWavesEffect  [disabled]="form.invalid">Sign in</button>
       
         <!-- Register -->
         <p>Not a member? 
