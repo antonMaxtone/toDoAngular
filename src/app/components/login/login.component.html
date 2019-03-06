@@ -1,14 +1,14 @@
-  <form class="text-center border border-light p-5" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <form class="text-center border border-light p-5" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <p class="h4 mb-4">Sign in</p>
       <div class="form-group md-form">
-        <label for = "formEmail">Email</label>
-        <input mdbInput mdbValidate type="email" id="formEmail" class="form-control mb-4" formControlName="email"> 
-        <mdb-error *ngIf="form.get('email').invalid && form.get('email').touched">Enter the correct email!</mdb-error>
+        <label for = "loginEmail">Email</label>
+        <input mdbInput mdbValidate type="email" id="loginEmail" class="form-control mb-4" formControlName="email"> 
+        <mdb-error *ngIf="loginForm.get('email').invalid && loginForm.get('email').touched">Enter the correct email!</mdb-error>
       </div>
       <div class="form-group md-form">
-        <label for = "formPassword">Password</label>
-        <input mdbInput mdbValidate type="password" id="formPassword" class="form-control mb-4" formControlName="password">
-        <mdb-error *ngIf="form.get('password').invalid && form.get('password').touched">The password should not be empty!</mdb-error>
+        <label for = "loginPassword">Password</label>
+        <input mdbInput mdbValidate type="password" id="loginPassword" class="form-control mb-4" formControlName="password">
+        <mdb-error *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched">The password should not be empty!</mdb-error>
       </div>
       <div class="d-flex justify-content-around">
           <div>
@@ -18,11 +18,11 @@
       </div>
       
         <!-- Sign in button -->
-      <button mdbBtn type="submit" gradient="aqua" rounded="true" mdbWavesEffect  [disabled]="form.invalid">Sign in</button>
+      <button mdbBtn type="submit" gradient="aqua" rounded="true" mdbWavesEffect  [disabled]="loginForm.invalid">Sign in</button>
       
         <!-- Register -->
         <p>Not a member? 
-          <a href=""> Register</a>
+          <a routerLink="/register"> Register here!</a>
         </p>
   </form>
 

@@ -8,19 +8,19 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-form: FormGroup;
+loginForm: FormGroup;
 
   constructor() { }
 
   ngOnInit() {
-    this.form = new FormGroup({
+    this.loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', Validators.required)
     });
   }
 
   onSubmit() {
-    console.log('Submited!', this.form);
+    console.log('Submited!', this.loginForm);
   }
 
 }

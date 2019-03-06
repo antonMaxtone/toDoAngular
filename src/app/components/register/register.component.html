@@ -1,3 +1,34 @@
-<p>
-  register works!
-</p>
+<form class="text-center border border-light p-5" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <p class="h4 mb-4">Registration</p>
+  <div class="form-row mb-4">
+  <div class="form-group md-form col">
+    <label for = "formName">Name</label>
+    <input mdbInput mdbValidate type="text" id="formName" class="form-control mb-4" formControlName="name"> 
+    <mdb-error *ngIf="registerForm.get('name').invalid && registerForm.get('name').touched">Enter your name!</mdb-error>
+  </div>
+  <div class="form-group md-form col">
+    <label for = "formSurname">Surname</label>
+    <input mdbInput mdbValidate type="text" id="formSurname" class="form-control mb-4" formControlName="surname"> 
+    <mdb-error *ngIf="registerForm.get('surname').invalid && registerForm.get('surname').touched">Enter yuor surname!</mdb-error>
+  </div>
+</div>
+  <div class="form-group md-form">
+    <label for = "formPhone">Phone</label>
+    <input mdbInput mdbValidate type="number" id="formPhone" class="form-control mb-4" formControlName="phone"> 
+    <mdb-error *ngIf="registerForm.get('phone').invalid && registerForm.get('phone').touched">Enter your phone!</mdb-error>
+  </div>
+  <div class="form-group md-form">
+    <label for = "registerEmail">Email</label>
+    <input mdbInput mdbValidate type="email" id="registerEmail" class="form-control mb-4" formControlName="email"> 
+    <mdb-error *ngIf="registerForm.get('email').invalid && registerForm.get('email').touched">Enter the correct email!</mdb-error>
+  </div>
+  <div class="form-group md-form">
+    <label for = "registerPassword">Password</label>
+    <input mdbInput mdbValidate type="password" id="registerPassword" class="form-control mb-4" formControlName="password">
+    <mdb-error *ngIf="registerForm.get('password').invalid && registerForm.get('password').touched">The password should not be empty!</mdb-error>
+  </div>
+  
+    <!-- Sign in button -->
+  <button mdbBtn class="my-4" type="submit" gradient="aqua" rounded="true" mdbWavesEffect  [disabled]="registerForm.invalid">Sign in</button>
+  
+</form>
