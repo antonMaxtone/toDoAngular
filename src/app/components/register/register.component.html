@@ -25,10 +25,28 @@
   <div class="form-group md-form">
     <label for = "registerPassword">Password</label>
     <input mdbInput mdbValidate type="password" id="registerPassword" class="form-control mb-4" formControlName="password">
-    <mdb-error *ngIf="registerForm.get('password').invalid && registerForm.get('password').touched">The password should not be empty!</mdb-error>
+    <mdb-error *ngIf="registerForm.get('password').invalid && registerForm.get('password').touched">
+      <span *ngIf="registerForm.get('password')['errors']['required']">The password should not be empty!</span>
+          <span *ngIf="registerForm.get('password')['errors']['minlength'] && registerForm.get('password')['errors']['minlength']['requiredLength']">
+            Password must be at least
+            {{registerForm.get('password')['errors']['minlength']['requiredLength']}} characters long.
+            Now {{registerForm.get('password')['errors']['minlength']['actualLength']}}
+          </span>
+    </mdb-error>
   </div>
+
+        <!-- Agree -->
+
+  <!-- <div class="d-flex justify-content-around">
+      <div>
+        <mdb-checkbox [checked]="false" [default]="true">Do you agree with the rules of this site?</mdb-checkbox>
+      </div>
+  </div> -->
   
     <!-- Sign in button -->
   <button mdbBtn class="my-4" type="submit" gradient="aqua" rounded="true" mdbWavesEffect  [disabled]="registerForm.invalid">Sign in</button>
   
+  <p> Do you already have an account? 
+    <a routerLink="/login"> Login here!</a>
+  </p>
 </form>

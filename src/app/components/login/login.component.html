@@ -13,7 +13,8 @@
         <input mdbInput mdbValidate type="password" id="loginPassword" class="form-control mb-4" formControlName="password">
         <mdb-error *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched">
           <span *ngIf="loginForm.get('password')['errors']['required']">The password should not be empty!</span>
-          <span *ngIf="loginForm.get('password')['errors']['minlength']">Password must be at least
+          <span *ngIf="loginForm.get('password')['errors']['minlength'] && loginForm.get('password')['errors']['minlength']['requiredLength']">
+            Password must be at least
             {{loginForm.get('password')['errors']['minlength']['requiredLength']}} characters long.
             Now {{loginForm.get('password')['errors']['minlength']['actualLength']}}</span>
         </mdb-error>
